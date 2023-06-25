@@ -2,9 +2,11 @@ package com.main2048;
 
 import java.awt.*;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+//code tự động gen, cứ sửa tự nhiên
 public class Main extends Canvas implements Runnable {
+
+    public static int[] pixels;
+    public static int scale;
 
     public void start() {
 
