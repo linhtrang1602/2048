@@ -19,7 +19,7 @@ public class Main extends Canvas implements Runnable {
 	public static BufferedImage image = new BufferedImage( WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB); 
 	public static int[] pixels = (( DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
-	public void Main() {
+	public Main() {
 		setPreferredSize( new Dimension(( int)( WIDTH * scale), ( int)( HEIGHT * scale)));
     	frame = new JFrame();
     	game = new Game();
