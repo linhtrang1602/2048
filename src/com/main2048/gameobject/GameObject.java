@@ -11,6 +11,7 @@ public class GameObject {
     public int height;
 
     public GameObject(int i, int i1) {
+        hehe
     }
 
     //code tự động gen, cứ sửa tự nhiên
