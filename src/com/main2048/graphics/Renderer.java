@@ -10,7 +10,7 @@ public class Renderer {
 	public static void renderBackground() {
 		for(int y = 0; y < height; y++) {
 			for(int x = 0; x < width; x++) {
-				pixels[x + y * width] = 0xffcccccc;
+				pixels[x + y * width] = 0xfff4f4f4;
 
 				if(x % 100 < 3 || x % 100 > 97 || y % 100 > 3 || y % 100 > 97) {
 					pixels[x + y * width] = 0xffcccccc;
@@ -19,7 +19,7 @@ public class Renderer {
 		}
 	}
 
-	public static void renderSprite(com.main2048.graphics.Sprite sprite, int xp, int yp) {
+	public static void renderSprite(Sprite sprite, int xp, int yp) {
 		if(xp < -sprite.width || xp > width || yp < -sprite.height || yp > height) return;
 
 		for(int y = 0; y < sprite.height; y++) {

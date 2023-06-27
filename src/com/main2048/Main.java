@@ -5,26 +5,30 @@ import java.awt.image.*;
 import javax.swing.JFrame;
 
 import com.main2048.game.Game;
+import com.main2048.input.Keyboard;
 
 public class Main extends Canvas implements Runnable {
-	
+
 	public static final int WIDTH = 400,HEIGHT = 400;
 	public static float scale = 2.0f;
-	
+
 	public JFrame frame;
 	public Thread thread;
+	public Keyboard key;
 	public Game game;
 	public boolean running = false;
-	
-	public static BufferedImage image = new BufferedImage( WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB); 
+
+	public static BufferedImage image = new BufferedImage( WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	public static int[] pixels = (( DataBufferInt) image.getRaster().getDataBuffer()).getData();
-	
+
 	public Main() {
 		setPreferredSize( new Dimension(( int)( WIDTH * scale), ( int)( HEIGHT * scale)));
     	frame = new JFrame();
     	game = new Game();
+		key = new Keyboard();
+		addKeyListener(key);
 	}
-	
+
     public void start() {
     	running = true;
     	thread = new Thread (this, "loopThread");
@@ -37,13 +41,13 @@ public class Main extends Canvas implements Runnable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-    	
+
     }
 
     public void run() {
     	long lastTimeInNanoSeconds = System.nanoTime();
     	long timer = System.currentTimeMillis();
-    	double nanoSecondsPerUpdate = 1000000000.0 / 60.0;
+    	double nanoSecondsPerUpdate = 10000000.0 / 60.0;
     	double updatesToPerform = 0.0;
     	int frames = 0;
     	int updates = 0;
@@ -54,13 +58,13 @@ public class Main extends Canvas implements Runnable {
     		if( updatesToPerform >=1) {
     			update();
     			updates++;
-    			updatesToPerform--;	
+    			updatesToPerform--;
     		}
     		lastTimeInNanoSeconds = currentTimeInNanoSeconds;
-    		
+
     		render();
     		frames++;
-    		
+
     		if(System.currentTimeMillis() - timer > 1000) {
     			frame.setTitle("2048 " + updates + " updates, " + frames + " frames" );
     			updates = 0;
@@ -72,7 +76,7 @@ public class Main extends Canvas implements Runnable {
 
     public void update() {
     	game.update();
-    	
+		key.update();
     }
 
     public void render() {
@@ -82,13 +86,13 @@ public class Main extends Canvas implements Runnable {
     		return;
     	}
     	game.render();
-    	
+
     	Graphics2D g = (Graphics2D) bs.getDrawGraphics();
     	g.drawImage( image, 0, 0, ( int)( WIDTH * scale), ( int)( HEIGHT * scale), null);
     	game.renderText(g);
     	g.dispose();
     	bs.show();
-    	
+
     }
 
     public static void main(String[] args) {
@@ -103,5 +107,5 @@ public class Main extends Canvas implements Runnable {
     	m.frame.setAlwaysOnTop(true);
     	m.start();
     }
- 
+
 }

@@ -82,19 +82,19 @@ public class Game {
             hasMoved = false;
         }
         if (!moving && !hasMoved) {
-            if (Keyboard.keyDown(KeyEvent.VK_A)) {
+            if (Keyboard.keyDown(KeyEvent.VK_LEFT) || Keyboard.keyDown(KeyEvent.VK_A)) {
                 hasMoved = true;
                 moving = true;
                 dir = 0;
-            } else if (Keyboard.keyDown(KeyEvent.VK_D)) {
+            } else if (Keyboard.keyDown(KeyEvent.VK_RIGHT) || Keyboard.keyDown(KeyEvent.VK_D)) {
                 hasMoved = true;
                 moving = true;
                 dir = 1;
-            } else if (Keyboard.keyDown(KeyEvent.VK_W)) {
+            } else if (Keyboard.keyDown(KeyEvent.VK_UP) || Keyboard.keyDown(KeyEvent.VK_W)) {
                 hasMoved = true;
                 moving = true;
                 dir = 2;
-            } else if (Keyboard.keyDown(KeyEvent.VK_S)) {
+            } else if (Keyboard.keyDown(KeyEvent.VK_DOWN) || Keyboard.keyDown(KeyEvent.VK_S)) {
                 hasMoved = true;
                 moving = true;
                 dir = 3;
@@ -123,6 +123,7 @@ public class Game {
 
     public void render() {
         Renderer.renderBackground();
+//        Renderer.renderSprite(new Sprite(100, 100, 0xffffff00), 100, 100);
 
         for (int i = 0; i < objects.size(); i++) {
             objects.get(i).render();
