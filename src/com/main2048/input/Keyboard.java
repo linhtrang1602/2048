@@ -18,8 +18,7 @@ public boolean key(int key){
 }
 
     public static boolean keyDown(int key) {
-
-    return keys[key] && !lastKeys[key];
+        return keys[key] && !lastKeys[key];
     }
 
     public static boolean keyUp(int key) {
@@ -31,10 +30,10 @@ public boolean key(int key){
     }
 
     public void keyPressed(KeyEvent e) {
-keys[e.getKeyCode()]=true;
+        keys[e.getKeyCode()]=true;
     }
 
     public void keyReleased(KeyEvent e) {
-keys[e.getKeyCode()]=false;
+        keys[e.getKeyCode()]=false;
     }
 }

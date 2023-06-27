@@ -1,27 +1,27 @@
-package game2048.graphics;
+package com.main2048.graphics;
 
-import game2048.Main;
+import com.main2048.Main;
 
-public class renderer {
-	
+public class Renderer {
+
 	public static int width = Main.WIDTH, height = Main.HEIGHT;
 	public static int[] pixels = new int[width * height];
-	
+
 	public static void renderBackground() {
 		for(int y = 0; y < height; y++) {
 			for(int x = 0; x < width; x++) {
 				pixels[x + y * width] = 0xffcccccc;
-				
+
 				if(x % 100 < 3 || x % 100 > 97 || y % 100 > 3 || y % 100 > 97) {
 					pixels[x + y * width] = 0xffcccccc;
 				}
 			}
 		}
 	}
-	
-	public static void renderSprite(game2048.graphics.sprite sprite, int xp, int yp) {
+
+	public static void renderSprite(com.main2048.graphics.Sprite sprite, int xp, int yp) {
 		if(xp < -sprite.width || xp > width || yp < -sprite.height || yp > height) return;
-		
+
 		for(int y = 0; y < sprite.height; y++) {
 			int yy = y +yp;
 			if(yy < 0 || yy > height) continue;

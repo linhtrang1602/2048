@@ -26,9 +26,7 @@ public class GameObject {
         this.width=sprite.width;
         this.height= sprite.height;
 
-
     }
-
     //code tự động gen, cứ sửa tự nhiên
 
 
