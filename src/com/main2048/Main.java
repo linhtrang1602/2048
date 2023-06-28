@@ -47,7 +47,7 @@ public class Main extends Canvas implements Runnable {
     public void run() {
     	long lastTimeInNanoSeconds = System.nanoTime();
     	long timer = System.currentTimeMillis();
-    	double nanoSecondsPerUpdate = 10000000.0 / 60.0;
+    	double nanoSecondsPerUpdate = 1000000.0 / 6.0;
     	double updatesToPerform = 0.0;
     	int frames = 0;
     	int updates = 0;
