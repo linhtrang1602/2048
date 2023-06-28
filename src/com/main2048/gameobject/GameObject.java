@@ -10,8 +10,9 @@ import java.util.Random;
 public class GameObject {
     public double x, y;
     public boolean remove = false, moving = false, hasMoved = false;
-    public int value, speed = 8;
+    public int value, speed = 12;
     public int width, height;
+    public static final int CELL_SIZE = 60, CELL_PADDING = 3;
     public Sprite sprite;
 
     Random random = new Random();
@@ -28,43 +29,43 @@ public class GameObject {
 
     public void createSprite() {
         if (this.value == 2) {
-            this.sprite = new Sprite(100, 100, 0xefe5db);
+            this.sprite = new Sprite(CELL_SIZE, CELL_SIZE, 0xefe5db);
         }
         if (this.value == 4) {
-            this.sprite = new Sprite(100, 100, 0xece0c8);
+            this.sprite = new Sprite(CELL_SIZE, CELL_SIZE, 0xece0c8);
         }
         if (this.value == 8) {
-            this.sprite = new Sprite(100, 100, 0xf1b078);
+            this.sprite = new Sprite(CELL_SIZE, CELL_SIZE, 0xf1b078);
         }
         if (this.value == 16) {
-            this.sprite = new Sprite(100, 100, 0xEB8C52);
+            this.sprite = new Sprite(CELL_SIZE, CELL_SIZE, 0xEB8C52);
         }
         if (this.value == 32) {
-            this.sprite = new Sprite(100, 100, 0xF57C5F);
+            this.sprite = new Sprite(CELL_SIZE, CELL_SIZE, 0xF57C5F);
         }
         if (this.value == 64) {
-            this.sprite = new Sprite(100, 100, 0xEC563D);
+            this.sprite = new Sprite(CELL_SIZE, CELL_SIZE, 0xEC563D);
         }
         if (this.value == 128) {
-            this.sprite = new Sprite(100, 100, 0xF2D86A);
+            this.sprite = new Sprite(CELL_SIZE, CELL_SIZE, 0xF2D86A);
         }
         if (this.value == 256) {
-            this.sprite = new Sprite(100, 100, 0xECC750);
+            this.sprite = new Sprite(CELL_SIZE, CELL_SIZE, 0xECC750);
         }
         if (this.value == 512) {
-            this.sprite = new Sprite(100, 100, 0xE5BF2D);
+            this.sprite = new Sprite(CELL_SIZE, CELL_SIZE, 0xE5BF2D);
         }
         if (this.value == 1024) {
-            this.sprite = new Sprite(100, 100, 0xE2B913);
+            this.sprite = new Sprite(CELL_SIZE, CELL_SIZE, 0xE2B913);
         }
         if (this.value == 2048) {
-            this.sprite = new Sprite(100, 100, 0xEDC22E);
+            this.sprite = new Sprite(CELL_SIZE, CELL_SIZE, 0xEDC22E);
         }
         if (this.value == 4096) {
-            this.sprite = new Sprite(100, 100, 0x5DDB92);
+            this.sprite = new Sprite(CELL_SIZE, CELL_SIZE, 0x5DDB92);
         }
         if (this.value == 8192) {
-            this.sprite = new Sprite(100, 100, 0xEC4D58);
+            this.sprite = new Sprite(CELL_SIZE, CELL_SIZE, 0xEC4D58);
         }
     }
 
@@ -98,8 +99,8 @@ public class GameObject {
             }
             if (!canMove()) {
                 moving = false;
-                x = Math.round(x / 100) * 100;
-                y = Math.round(y / 100) * 100;
+                x = Math.round(x / CELL_SIZE) * CELL_SIZE;
+                y = Math.round(y / CELL_SIZE) * CELL_SIZE;
             }
         }
     }

@@ -9,7 +9,7 @@ import com.main2048.input.Keyboard;
 
 public class Main extends Canvas implements Runnable {
 
-	public static final int WIDTH = 400,HEIGHT = 400;
+	public static final int WIDTH = 240,HEIGHT = 240;
 	public static float scale = 2.0f;
 
 	public JFrame frame;

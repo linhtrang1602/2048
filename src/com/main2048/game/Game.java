@@ -112,13 +112,13 @@ public class Game {
             y = rand.nextInt(4);
             boolean isAvailavle = true;
             for (int i = 0; i < objects.size(); i++) {
-                if (objects.get(i).x / 100 == x && objects.get(i).y / 100 == y) {
+                if (objects.get(i).x / GameObject.CELL_SIZE == x && objects.get(i).y / GameObject.CELL_SIZE == y) {
                     isAvailavle = false;
                 }
             }
             if (isAvailavle) available = true;
         }
-        objects.add(new GameObject(x * 100, y * 100));
+        objects.add(new GameObject(x * GameObject.CELL_SIZE, y * GameObject.CELL_SIZE));
     }
 
     public void render() {
@@ -136,7 +136,7 @@ public class Game {
 
     public void renderText(Graphics2D g) {
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g.setFont(new Font("Verdana", 0, 100));
+        g.setFont(new Font("Verdana", 0, 60));
         g.setColor(Color.BLACK);
 
         for (int i = 0; i < objects.size(); i++) {
